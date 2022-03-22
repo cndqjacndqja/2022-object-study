@@ -7,19 +7,7 @@ public class Audience {
         this.bag = bag;
     }
 
-    public Bag getBag() {
-        return bag;
-    }
-
-    public boolean hasInvitation() {
-        return bag.hashInvitation();
-    }
-
-    public void buy(Ticket ticket) {
-        bag.buy(ticket);
-    }
-
-    public void changeInvitation(Ticket tickets) {
-        bag.changeInvitation(tickets);
+    public long buy(Ticket ticket) {
+        return bag.hold(ticket);
     }
 }

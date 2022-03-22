@@ -12,16 +12,6 @@ public class TicketSeller {
     }
 
     public void sellTo(Audience audience) {
-        if (audience.hasInvitation()) {
-            audience.changeInvitation(getTicketOffice().getTickets());
-            return;
-        }
-        buy(audience);
-    }
-
-    private void buy(Audience audience) {
-        Ticket ticket = getTicketOffice().getTickets();
-        audience.buy(ticket);
-        getTicketOffice().plusAmount(ticket.getFee());
+        ticketOffice.plusAmount(audience.buy(ticketOffice.getTickets()));
     }
 }
