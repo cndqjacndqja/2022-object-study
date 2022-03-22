@@ -32,3 +32,29 @@
 
 
 
+## 책 안보고 다시 리팩토링
+
+### 리팩토링 결과
+TicketSeller가 Audience에게 초대권이 있는지 물어본다.
+만약 있다면, Audience에게 TicketOffice에서 getTickets()를 해온 후 changeInvitation()에 전달하여 실행시킨다.
++ changeInvitation()는 bag에게 메세지를 보내어 초대권을 제거한 후, 입력 받은 Ticket을 저장한다.
+
+없다면 TicketOffice에서 getTickets()로 Ticket을 가져와 입력한 후, Audience에게 buy()메세지를 보낸다.
+그럼 Audience는 bag에게 메세지를 보내어 Ticket을 구매한다.
+
+### 책과 차이
+
+TicketSeller에서 아래의 흐름을 실행시킨다.
+audience가 tickOffice에서 getTickets()해온 값을 입력 받아 구매한 후, 구입한 금액을 반환한다.
+
+이때 구입한 금액을 받아오는 과정도 신기하다.
+bag에게 물어본다.
+만약 초대권이 있으면 0원을 리턴하고
+초대권이 없다면 구매한 후에 티켓 가격을 리턴한다.
+-> 이게 진짜 객체의 협력 아닐까?? 난 왜 이 생각을 못했을까...?
+
+audience가 buy를 하면서 리턴한 구매 가격을 ticketOffce의 plusAmount를 통해 수익을 추가한다.
+
+
+
+

@@ -11,7 +11,7 @@ public class Audience {
         return bag;
     }
 
-    public boolean hashInvitation() {
+    public boolean hasInvitation() {
         return bag.hashInvitation();
     }
 
