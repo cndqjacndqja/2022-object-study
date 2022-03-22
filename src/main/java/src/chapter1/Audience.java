@@ -10,4 +10,16 @@ public class Audience {
     public Bag getBag() {
         return bag;
     }
+
+    public boolean hashInvitation() {
+        return bag.hashInvitation();
+    }
+
+    public void buy(Ticket ticket) {
+        bag.buy(ticket);
+    }
+
+    public void changeInvitation(Ticket tickets) {
+        bag.changeInvitation(tickets);
+    }
 }
